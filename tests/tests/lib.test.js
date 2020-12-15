@@ -34,5 +34,25 @@ describe('greet', () => {
     })
 });
 
+describe('getCurrencies', () => {
+    it('should return supported currencies', () => {
+        const result = lib.getCurrencies();
+
+        // Too general
+        expect(result).toBeDefined();
+        expect(result).not.toBeNull();
+
+        // Too specific
+        expect(result[0]).toBe('USD');
+
+        // Proper
+        expect(result).toContain('USD');
+        expect(result).toContain('AUD');
+        expect(result).toContain('EUR');
+
+        // Ideal
+        expect(result).toEqual(expect.arrayContaining(['EUR', 'USD', 'AUD']));
+    })
+});
 // Tests should be considered first class citizens in your source code
 // As important as your production code
