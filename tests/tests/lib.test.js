@@ -69,6 +69,16 @@ describe('getProduct', () => {
     });
 });
 
+describe('registerUser', () => {
+    it('should throw if username is falsy', () => {
+        // null, undefined, nan, '', 0, false
+        
+        const args = [null, undefined, NaN, '', 0, false];
+        args.forEach(a => {
+            expect(() => { lib.registerUser(a) }).toThrow();
+        })
+    });
+});
 
 // Tests should be considered first class citizens in your source code
 // As important as your production code
