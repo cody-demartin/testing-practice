@@ -3,8 +3,13 @@ const mail = require('./mail');
 
 // Testing numbers 
 module.exports.absolute = function(number) {
+  // First execution path
   if (number > 0) return number; 
+
+  // Second
   if (number < 0) return -number; 
+
+  // Third
   return 0; 
 }
 
