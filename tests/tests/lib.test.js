@@ -54,5 +54,21 @@ describe('getCurrencies', () => {
         expect(result).toEqual(expect.arrayContaining(['EUR', 'USD', 'AUD']));
     })
 });
+
+describe('getProduct', () => {
+    it('should return the product with the given id', () => {
+        const result = lib.getProduct(1);
+
+        // To be matcher compares reference to memory so it doesn't work with objects
+        // expect(result).toEqual({id: 1, price: 10 }); => toEqual to specific for obj
+
+        expect(result).toMatchObject({ id: 1, price: 10 });
+
+        // Value types matter here string !== num etc. 
+        expect(result).toHaveProperty('id', 1);
+    });
+});
+
+
 // Tests should be considered first class citizens in your source code
 // As important as your production code
